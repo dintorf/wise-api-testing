@@ -1,0 +1,25 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <div ng-controller="SidenavCtrl as vm" ng-cloak>
+        <div ng-controller="HomeSidenavCtrl as homeNav">
+            <md-toolbar class="md-tall md-hue-2">
+                <div layout="column" class="md-toolbar-tools-bottom inset">
+                    <div layout="row">
+                        <div flex="80" style="margin-top: 10px;">
+                            <div>Home</div>
+                        </div>
+                    </div>
+                </div>
+            </md-toolbar>
+        </div>
+    </div>
+</md-sidenav>
+
+<div layout="column" class="relative" layout-fill role="main" ng-controller="MenuCtrl as nav" ng-cloak>
+    <ng-include src="'app/modules/layouts/nav-bar/nav-bar.html'"></ng-include>
+    <md-content class="md-blue-grey-theme" flex md-scroll-y>
+        <ui-view layout="column" layout-fill layout-padding>
+
+
+        </ui-view>
+    </md-content>
+</div>

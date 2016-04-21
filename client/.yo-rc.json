@@ -1,0 +1,30 @@
+{
+  "generator-angm": {
+    "appName": "wiseagent",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularSanitize": true,
+    "angularMaterial": true,
+    "modules": [
+      {
+        "name": "LoopBack"
+      },
+      {
+        "name": "contacts"
+      },
+      {
+        "name": "marketing"
+      }
+    ],
+    "menu": [
+      {
+        "link": "contacts",
+        "title": "Contacts"
+      },
+      {
+        "link": "marketing",
+        "title": "Marketing"
+      }
+    ]
+  }
+}

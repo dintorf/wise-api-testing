@@ -1,0 +1,93 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button ng-click="nav.toggleSidenav('left')" hide-gt-md aria-label="Menu">
+            <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <h3>
+            <a href="/">Wise Agent</a>
+        </h3>
+        <md-menu-bar>
+            <md-menu>
+                <button aria-label="Open Apps" ng-click="nav.openMenu($mdOpenMenu, $event)" class="md-icon-button">
+                    <md-tooltip md-direction="bottom">
+                        Menu
+                    </md-tooltip>
+                    <md-icon> apps </md-icon>
+                </button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ng-click="nav.navigateTo('home.dashboard')">
+                            <md-icon>dashboard</md-icon>
+                            Dashboard
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item ng-repeat="item in nav.menu">
+                        <md-menu ng-if="item.menu">
+                            <md-button ng-click="$mdOpenMenu()">
+                                <md-icon>{{item.icon}}</md-icon>
+                                {{item.name}}
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item ng-repeat="option in item.menu">
+                                    <md-button ng-click="nav.navigateTo(item.link + '.' + option.link)">{{option.name}}</md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                        <md-button ng-click="nav.navigateTo(item.link)" ng-if="!item.menu">
+                            <md-icon>{{item.icon}}</md-icon>
+                            {{item.name}}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </md-menu-bar>
+        <span flex></span>
+        <md-menu-bar>
+            <md-menu>
+                <button aria-label="Open Apps" ng-click="nav.openMenu($mdOpenMenu, $event)" class="md-icon-button">
+                    <md-tooltip md-direction="bottom">
+                        Search
+                    </md-tooltip>
+                    <md-icon> search </md-icon>
+                </button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-input-container>
+                            <label>Search Contacts</label>
+                            <input ng-model="search.who">
+                        </md-input-container>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <button aria-label="Open Settings" ng-click="nav.openMenu($mdOpenMenu, $event)" class="md-icon-button">
+                    <md-tooltip md-direction="bottom">
+                        Settings
+                    </md-tooltip>
+                    <md-icon> more_vert </md-icon>
+                </button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ng-click="nav.changeProfile($event)">
+                            <md-icon>face</md-icon>
+                            Profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="nav.changePassword()">
+                            <md-icon>lock</md-icon>
+                            Password
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="nav.logOut()">
+                            <md-icon>power_settings_new</md-icon>
+                            Logout
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </md-menu-bar>
+    </div>
+</md-toolbar>
